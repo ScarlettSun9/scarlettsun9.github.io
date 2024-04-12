@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+# subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
@@ -16,10 +16,11 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-> After all, tomorrow is another day.
+> Mastering others is strength, mastering yourself is true power.
+> by *Lao Tzu*
 
-This is a garden to share my thoughts. If you think the content here is interesting or useful, that would be my pleasure.
+This is a world to share my thoughts. If you think the content here is interesting or useful, that would be my pleasure.
 
-I used to make the website academic, but that is too serious for a cozy personal website. So if you want to know my basic information, just click [here](https://www.linkedin.com/in/scarlett-sun-0935a7239/). 
+I used to make the website academic, but that is too serious for a personal website. So if you want to know my basic information, just click [here](https://www.linkedin.com/in/scarlett-sun-0935a7239/). 
 
 BTW, if you find the names are different or confusing, don't worry. They denote to the same person. 

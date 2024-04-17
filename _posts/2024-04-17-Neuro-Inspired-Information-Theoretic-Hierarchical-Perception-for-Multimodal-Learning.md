@@ -20,16 +20,16 @@ toc:
     # subsections:
     #   - name: Example Child Subsection 1
     #   - name: Example Child Subsection 2
-    - name: Niche
-    - name: Concepts
-      - name: Cognitive answer for multimodal integration
-      - name: Information Bottleneck (IB)
-    - name: Model Architecture
-    - name: Train the Model
+  - name: Niche
+  - name: Concepts
+  - name: Cognitive answer for multimodal integration
+  - name: Information Bottleneck (IB)
+  - name: Model Architecture
+  - name: Train the Model
   - name: Experiment
-    - name: Sarcasm Detection
-      - name: Varying Lagrange multiplier
-    - name: Sentiment Analysis
+  - name: Sarcasm Detection
+  - name: Varying Lagrange multiplier
+  - name: Sentiment Analysis
   - name: Personal Comment
 
 # Below is an example of injecting additional post-specific styles.

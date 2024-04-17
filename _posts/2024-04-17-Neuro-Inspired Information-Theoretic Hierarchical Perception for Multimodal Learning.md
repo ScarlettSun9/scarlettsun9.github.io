@@ -2,7 +2,7 @@
 layout: distill
 title: Paper Review 📝 Neuro-Inspired ITHP for Multimodal Learning
 description: Neuro-Inspired Information-Theoretic Hierarchical Perception for Multimodal Learning - a new method for multimodal representation fusion
-tags: distill formatting
+tags: AI multimodal
 giscus_comments: true
 date: 2024-04-17
 featured: true
@@ -15,17 +15,22 @@ featured: true
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
-  - name: Equations
+  - name: Approach & Model
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
     #   - name: Example Child Subsection 2
-  - name: Citations
-  - name: Footnotes
-  - name: Code Blocks
-  - name: Interactive Plots
-  - name: Layouts
-  - name: Other Typography?
+    - name: Niche
+    - name: Concepts
+      - name: Cognitive answer for multimodal integration
+      - name: Information Bottleneck (IB)
+    - name: Model Architecture
+    - name: Train the Model
+  - name: Experiment
+    - name: Sarcasm Detection
+      - name: Varying Lagrange multiplier
+    - name: Sentiment Analysis
+  - name: Personal Comment
 
 # Below is an example of injecting additional post-specific styles.
 # If you use this post as a template, delete this _styles block.
@@ -50,8 +55,6 @@ _styles: >
 
 This paper demonstrates a method for fusing multimodal information with hierarchical information path way and information bottleneck structure. Experimental results show that the new method can outperform state-of-the-art benchmarks on sarcasm detection and sentiment analysis.
 
----
-
 ## Approach & Model
 
 ### Niche
@@ -60,14 +63,14 @@ Multimodal Fusion can be generally classified into two types: early fusion and l
 
 ### Concepts
 
-##### Cognitive answer for how our brain mine and integrate multimodal information (to reason and make decision)
+#### Cognitive answer for multimodal integration
 
 * Information from different modalities forms connections in a specific order within the brain.
 * Synaptic connections between different modality-receptive areas are reciprocal. This reciprocity enables information from various modalities to reciprocally exert feedback.
 * Such a sequential and hierarchical processing approach allows the brain to start by processing information in a certain modality, gradually linking and processing information in other modalities, and finally analyzing and integrating information effectively in a coordinated manner.
 * The brain selectively attends to relevant cues from each modality, extracts meaningful features, and combines them to form a more comprehensive and coherent representation of the multimodal stimulus.
 
-##### Information Bottleneck (IB) 
+#### Information Bottleneck (IB) 
 * This is mainly a tradeoff between compression and prediction in an information flow.
 * Target: find a **compact representation of one given state** while **preserving its predictive power with respect to another state**.
 
@@ -102,14 +105,19 @@ First, to further explain the bottleneck structure loss function, we take a look
 $$
 I(X_0; X_1) − I(B_0; X_1) \leq \epsilon_1
 $$
+
 Hidden state $$B_0$$ covers as much relevant information in $$X_1$$ as possible, so $$I(X_0; X_1) − \epsilon_1$$ is a lower bound of $$I(B_0; X_1)$$;
+
 $$
 I(B_0; B_1) \leq \epsilon_2
 $$
+
 Minimize $$I(B_0; B_1)$$ to further compress the information of $$B0$$ into $$B1$$;
+
 $$
 I(X_0; X_2) − I(B_1; X_2) \leq \epsilon_3
 $$
+
 $$B_1$$ is constructed to retains as much relevant information in $$X_2$$ as possible, with $$I (X_0 ; X_2) − \epsilon_3$$ as a lower bound.
 
 The general loss function (a Lagrangian function) is:
@@ -126,7 +134,7 @@ Further, let's see the detailed loss of the two bottlenecks: $$X_0$$-$$B_0$$-$$X
   {% include figure.liquid loading="eager" path="assets/img/20240417-4.png" class="img-fluid rounded z-depth-1" zoomable=true%}
 </div>
 
-Here, $$KL(p(X)||q(X))$$ is the Kullback-Leibler (KL) divergence between the two distributions $$p(X)$$ and $$q(X)$$.
+Here, *KL(p(X)||q(X))* is the Kullback-Leibler (KL) divergence between the two distributions *p(X)* and *q(X)*.
 
 ### Train the Model
 
@@ -141,7 +149,6 @@ If we need to train for the specific downstream task, the function is:
 <div>
   {% include figure.liquid loading="eager" path="assets/img/20240417-6.png" class="img-fluid rounded z-depth-1" zoomable=true%}
 </div>
----
 
 ## Experiment
 
@@ -156,9 +163,6 @@ If we need to train for the specific downstream task, the function is:
 
 <div>
   {% include figure.liquid loading="eager" path="assets/img/20240417-8.png" class="img-fluid rounded z-depth-1" zoomable=true%}
-  <div class="caption">
-    Information flow illustration on sarcasm detection task (as well as sentiment analysis task). 
-  </div>
 </div>
 
 * Dataset: the Multimodal Sarcasm Detection Dataset (MUStARD)
@@ -170,7 +174,7 @@ If we need to train for the specific downstream task, the function is:
     * MSDM V-A lower than V ➡️ struggled to effectively extract meaningful information by combining the embedding features from video and audio.
   * For three modalities, ITHP outperforms MSDM ➡️ succeeds to construct the effective information flow among the multimodality states for the sarcasm detection task.
 
-##### Varying Lagrange multiplier
+#### Varying Lagrange multiplier
 
 The authors also adjust the Lagrange multipliers, $$\gamma$$ and $$\beta$$, to see its influence on the precision and recall value.
 
@@ -196,7 +200,6 @@ The upper right triangular part is brighter than the lower left triangular part 
 * Results:
   * ITHP model outperforms all the SOTA models in both BERT and DeBERTa incorporation settings.
   * Significant strides in per-formance were observed with the integration of DeBERTa with the ITHP model, surpassing even human levels.
----
 
 ## Personal Comment
 

@@ -2,13 +2,13 @@
 layout: post
 title: Retrieval-Augmented Generation for Large Language Models - A Survey
 date: 2024-04-20 11:59:00-0400
-description: 
+description: test for sidebar post
 tags: RAG LLM
 categories: sample-posts
 giscus_comments: true
 related_posts: false
 toc:
-  beginning: true
+  sidebar: left
 ---
 
 This post shows how to add a table of contents in the beginning of the post.
